@@ -1,13 +1,12 @@
 {
   "name": "editorjs-html",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "build/edjsHTML.node.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup --config",
-    "flow":"flow",
-    "postinstall": "npm run build"
+    "flow":"flow"
   },
   "keywords": [],
   "author": "pavittarx",
