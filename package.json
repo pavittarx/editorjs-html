@@ -1,19 +1,17 @@
 {
   "name": "editorjs-html",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "build/edjsHTML.node.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup --config",
-    "flow":"flow"
+    "flow":"flow",
+    "postinstall": "npm run build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "app": "^0.1.0"
-  },
+  "author": "pavittarx",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
