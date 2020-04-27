@@ -84,7 +84,7 @@ Create an issue or send me a PR for any new contributions.
 I would love to have your feedback and any suggestions. You can also let me know, if you need support for any more editorjs blocks. 
 
 ## Support 
-If you find this helpful, consider giving this repository a Star. You can also support me on (Patreon)[https://patreon.com/pavittarx]
+If you find this helpful, consider giving this repository a Star. You can also support me on [Patreon](https://patreon.com/pavittarx)
 
 ## License 
 MIT Public License
