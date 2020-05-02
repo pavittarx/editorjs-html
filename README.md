@@ -17,9 +17,8 @@ A utility to parse editorjs clean data to HTML.
 npm install editorjs-html
 
 ### CDN
-  
-  Coming soon
-
+* https://cdn.jsdelivr.net/npm/editorjs-html@1.0.4/build/edjsHTML.js
+* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@1.0.4/build/edjsHTML.browser.js
 
 ## Usage
 
