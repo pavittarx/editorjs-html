@@ -25,10 +25,9 @@ var edjsHTML = (function () {
   var app = ((plugins = {}) => {
     Object.assign(transforms, plugins);
     return {
-      parse: data => {
-        const {
-          blocks
-        } = data;
+      parse: ({
+        blocks
+      }) => {
         return blocks.map(b => transforms[b.type](b.data));
       },
       parseBlock: block => {
