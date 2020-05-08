@@ -4,8 +4,7 @@ export default (plugins = {})=>{
   Object.assign(transforms, plugins);
   
   return {
-    parse: (data)=>{
-      const { blocks } = data;
+    parse: ({blocks})=>{
       return blocks.map(b => transforms[b.type](b.data));
       
     },
