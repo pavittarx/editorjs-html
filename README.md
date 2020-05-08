@@ -26,7 +26,7 @@ npm install editorjs-html
 ```js
     const edjsParser = edjsHTML();
 
-    let html = edjsParser.parse(editorjs-clean-data);
+    let html = edjsParser.parse(editorjs_clean_data);
 
     console.log(html);
 ```
@@ -36,7 +36,7 @@ npm install editorjs-html
 ```js
   const edjsParser = edjsHTML();
   
-  const html = edjsParser.parse(editorjs-clean-data);
+  const html = edjsParser.parse(editorjs_clean_data);
 
   console.log(html);
 ```
@@ -47,6 +47,15 @@ npm install editorjs-html
 * Lists (Ordered & Unordered)
 * Images
 * Delimiter 
+
+## Parse Single Clean Data Blocks
+
+```js
+    const edjsParser = edjsHTML();
+    const blockHTML = edjsParser.parseBlock(editorjs_clean_data_block);
+
+    console.log(blockHTML);
+```
 
 ### Extend For Custom Blocks 
 `editorjs-html`  supports extending its functionality to render custom editorjs blocks. Moroever, You can even override these basic supported blocks.
@@ -77,13 +86,13 @@ npm install editorjs-html
 ```
 
 ## Contribution 
-Create an issue or send me a PR for any new contributions.
+Create an issue or send a PR for any contributions.
 
 ## Suggestions 
 I would love to have your feedback and any suggestions. You can also let me know, if you need support for any more editorjs blocks. 
 
 ## Support 
-If you find this helpful, consider giving this repository a Star. You can also support me on [Patreon](https://patreon.com/pavittarx)
+If you find this helpful, consider giving this repository a Star. You can also buy me a coffee [here](https://www.buymeacoffee.com/pavittarx)
 
 ## License 
 MIT Public License
