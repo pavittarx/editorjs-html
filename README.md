@@ -77,8 +77,8 @@ npm install editorjs-html
 
 ```js
    // Parse this block in editorjs-html
-   function customParser(block){
-     return `<custom>`+block.data.text+`</custom>`;
+   function customParser(data){
+     return `<custom-tag> ${data.text} </custom-tag>`;
    }
 
    const edjsParser =  edjsHTML({custom: customParser});
