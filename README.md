@@ -45,6 +45,8 @@ npm install editorjs-html
 
 See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 
+## Docs
+
 ### Supported Block Types 
 
 * Header (H1-H6)
@@ -65,9 +67,10 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 ### Extend For Custom Blocks 
 `editorjs-html`  supports extending its functionality to render custom editorjs blocks. Moroever, You can even override these basic supported blocks.
 
-* the `edjsHTML()` accepts an optional object that would allow you to extend its functionality. 
+* The `edjsHTML()` accepts an optional object that would allow you to extend its functionality. 
 
-* The name of the function must match with editor-js custom block type. 
+* The name of the function must match with editor-js custom block type.
+
 
 ```js
   // Your custom editorjs generated block
@@ -89,6 +92,8 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
   const edjsParser =  edjsHTML({custom: customParser});
 
 ```
+
+[Update] From v2.0.0 onwards, the parser functions recieves full `block` instead of just `data` property of the block. Read [releases](https://github.com/pavittarx/editorjs-html/releases) for more information.
 
 ## Contribution 
 Create an issue or send a PR for any contributions.
