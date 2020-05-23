@@ -35,16 +35,23 @@ var edjsHTML = (function () {
     }
   };
 
+  function ParseFunctionError(type) {
+    return new Error(`\x1b[31m The Parser function of type "${type}" is not defined. \n
+  Define your custom parser functions as: \x1b[34mhttps://github.com/pavittarx/editorjs-html#extend-for-custom-blocks \x1b[0m`);
+  }
+
   var app = ((plugins = {}) => {
     Object.assign(transforms, plugins);
     return {
       parse: ({
         blocks
       }) => {
-        return blocks.map(block => transforms[block.type](block));
+        return blocks.map(block => {
+          return transforms[block.type] ? transforms[block.type](block) : ParseFunctionError(block.type);
+        });
       },
       parseBlock: block => {
-        return transforms[block.type](block);
+        return transforms[block.type] ? transforms[block.type](block) : ParseFunctionError(block.type);
       }
     };
   });
