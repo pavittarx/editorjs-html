@@ -8,20 +8,33 @@
     delimiter: () => {
       return `<br/>`;
     },
-    header: data => {
+    header: ({
+      data
+    }) => {
       return `<h${data.level}> ${data.text} </h${data.level}>`;
     },
-    paragraph: data => {
+    paragraph: ({
+      data
+    }) => {
       return `<p> ${data.text} </p>`;
     },
-    list: data => {
-      let style = data.style === 'unordered' ? 'ul' : 'ol';
-      let list = data.items.map(i => `<li> ${i} </li>`).reduce((a, c) => a + c, '');
+    list: ({
+      data
+    }) => {
+      let style = data.style === "unordered" ? "ul" : "ol";
+      let list = data.items.map(i => `<li> ${i} </li>`).reduce((a, c) => a + c, "");
       return `<${style}> ${list} </${style}`;
     },
-    image: data => {
-      let caption = data.caption ? data.caption : 'Image';
-      return `<img src="${data.file.url}" alt="${caption}"`;
+    image: ({
+      data
+    }) => {
+      let caption = data.caption ? data.caption : "Image";
+      return `<img src="${data.file.url}" alt="${caption}" />`;
+    },
+    paragraph: ({
+      data
+    }) => {
+      return `<p> ${data.text} </p>`;
     }
   };
 
@@ -31,10 +44,10 @@
       parse: ({
         blocks
       }) => {
-        return blocks.map(b => transforms[b.type](b.data));
+        return blocks.map(block => transforms[block.type](block));
       },
       parseBlock: block => {
-        return transforms[block.type](block.data);
+        return transforms[block.type](block);
       }
     };
   });
