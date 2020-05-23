@@ -17,18 +17,18 @@ A utility to parse editorjs clean data to HTML.
 npm install editorjs-html
 
 ### CDN
-* https://cdn.jsdelivr.net/npm/editorjs-html@1.1.0/build/edjsHTML.js
-* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@1.1.0/build/edjsHTML.browser.js
+* https://cdn.jsdelivr.net/npm/editorjs-html@2.0.0/build/edjsHTML.js
+* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@2.0.0/build/edjsHTML.browser.js
 
 ## Usage
 
 ### Browser
 ```js
-    const edjsParser = edjsHTML();
+  const edjsParser = edjsHTML();
 
-    let html = edjsParser.parse(editorjs_clean_data);
+  let html = edjsParser.parse(editorjs_clean_data);
 
-    console.log(html);
+  console.log(html);
 ```
 
 ### Nodejs
@@ -41,20 +41,25 @@ npm install editorjs-html
   console.log(html);
 ```
 
+## Updates 
+
+See [Releases](https://github.com/pavittarx/editorjs-html/releases)
+
 ### Supported Block Types 
 
 * Header (H1-H6)
 * Lists (Ordered & Unordered)
 * Images
 * Delimiter 
+* Paragraph
 
 ## Parse Single Clean Data Blocks
 
 ```js
-    const edjsParser = edjsHTML();
-    const blockHTML = edjsParser.parseBlock(editorjs_clean_data_block);
+  const edjsParser = edjsHTML();
+  const blockHTML = edjsParser.parseBlock(editorjs_clean_data_block);
 
-    console.log(blockHTML);
+  console.log(blockHTML);
 ```
 
 ### Extend For Custom Blocks 
@@ -65,23 +70,23 @@ npm install editorjs-html
 * The name of the function must match with editor-js custom block type. 
 
 ```js
-   // Your custom editorjs generated block
+  // Your custom editorjs generated block
   {
-   type: "custom",
-   data: {
-     text: "Hello World"
-   }
+    type: "custom",
+    data: {
+      text: "Hello World"
+    }
  }
 
 ```
 
 ```js
-   // Parse this block in editorjs-html
-   function customParser(data){
-     return `<custom-tag> ${data.text} </custom-tag>`;
-   }
+  // Parse this block in editorjs-html
+  function customParser(block){
+    return `<custom-tag> ${block.data.text} </custom-tag>`;
+  }
 
-   const edjsParser =  edjsHTML({custom: customParser});
+  const edjsParser =  edjsHTML({custom: customParser});
 
 ```
 
