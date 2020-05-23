@@ -1,4 +1,5 @@
 import babel from "rollup-plugin-babel";
+import { terser } from "rollup-plugin-terser";
 
 export default {
   input: "src/app.js",
@@ -19,5 +20,5 @@ export default {
       format: "iife",
     } 
   ],
-  plugins: [babel()],
+  plugins: [babel(), terser()],
 };
