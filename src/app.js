@@ -5,12 +5,12 @@ export default (plugins = {})=>{
   
   return {
     parse: ({blocks})=>{
-      return blocks.map(b => transforms[b.type](b.data));
+      return blocks.map(block => transforms[block.type](block));
       
     },
 
     parseBlock: (block) => {
-      return transforms[block.type](block.data);
+      return transforms[block.type](block);
     }
   }
 }
