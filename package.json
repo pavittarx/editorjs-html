@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup --config",
-    "flow":"flow"
+    "flow": "flow"
   },
   "keywords": [],
   "author": "pavittarx",
@@ -14,8 +14,6 @@
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
-    "@babel/preset-flow": "^7.9.0",
-    "flow-bin": "^0.123.0",
     "rollup": "^2.7.2",
     "rollup-plugin-babel": "^4.4.0"
   }
