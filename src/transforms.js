@@ -16,7 +16,7 @@ export default {
     let list = data.items
       .map((i) => `<li> ${i} </li>`)
       .reduce((a, c) => a + c, "");
-    return `<${style}> ${list} </${style}`;
+    return `<${style}> ${list} </${style}>`;
   },
 
   image: ({ data }) => {
