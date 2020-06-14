@@ -1,13 +1,19 @@
 {
   "name": "editorjs-html",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "",
   "main": "build/edjsHTML.node.js",
   "scripts": {
     "test": "npm run build && node test/test",
     "build": "rollup --config"
   },
-  "keywords": [],
+  "keywords": [
+    "editorjs",
+    "html",
+    "parsing",
+    "json",
+    "editorjs-html"
+  ],
   "author": "pavittarx",
   "license": "MIT",
   "devDependencies": {
