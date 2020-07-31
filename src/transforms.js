@@ -21,7 +21,7 @@ export default {
 
   image: ({ data }) => {
     let caption = data.caption ? data.caption : "Image";
-    return `<img src="${data.file.url}" alt="${caption}" />`;
+    return `<div className="image-wrapper"><img src="${data.file.url}" alt="${caption}" /><div>`;
   },
 
   paragraph: ({ data }) => {
