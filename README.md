@@ -55,12 +55,21 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 * Delimiter 
 * Paragraph
 
-## Parse Single Clean Data Blocks
+## Parse Entire EditorJS Data Object
+
+```js
+  const edjsParser = edjsHTML();
+  const HTML = edjsParser.parse(editorjs_data);
+  // returns array of html strings per block
+  console.log(HTML);
+```
+
+## Parse Single Clean Data Block
 
 ```js
   const edjsParser = edjsHTML();
   const blockHTML = edjsParser.parseBlock(editorjs_clean_data_block);
-
+  // returns string of html for this block
   console.log(blockHTML);
 ```
 
