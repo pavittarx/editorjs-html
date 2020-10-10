@@ -1,7 +1,13 @@
-import transforms from "./transforms";
+import { OutputData } from '@editorjs/editorjs';
+import transforms, { block } from "./transforms";
 import { ParseFunctionError } from "./errors";
 
-export default (plugins = {}) => {
+type parser = {
+  parse(OutputData: OutputData): any;
+  parseBlock(block: block): any;
+}
+
+const parser = (plugins = {}): parser => {
   Object.assign(transforms, plugins);
 
   return {
@@ -20,3 +26,5 @@ export default (plugins = {}) => {
     },
   };
 };
+
+export default parser

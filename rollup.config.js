@@ -1,8 +1,9 @@
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
+import typescript from 'rollup-plugin-typescript2'
 
 export default {
-  input: "src/app.js",
+  input: "src/app.ts",
   output: [
     {
       file: "build/edjsHTML.js",
@@ -20,5 +21,5 @@ export default {
       format: "iife",
     } 
   ],
-  plugins: [babel(), terser()],
+  plugins: [babel(), terser(), typescript()],
 };
