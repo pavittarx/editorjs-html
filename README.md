@@ -107,7 +107,7 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 ## Contribution 
 Create an issue or send a PR for any contributions you would like to make.
 
-I am thankful for everyone who has contributed their own bits to the repository. Even though the library is small and the scope for writing new or lots of features is limited. I still grateful to see a lots of  
+I am thankful for everyone who has contributed their own bits to the repository. Even though the library is small and the scope for writing new or lots of features is limited. I still grateful to see a lots of contributions coming in.
 
 ## Suggestions & Recommendations
 I would love to have your feedback and any suggestions. You can also let me know, if you need support for any more editorjs blocks. 
