@@ -5,6 +5,7 @@ export declare type transforms = {
     paragraph(block: block): string;
     list(block: block): string;
     image(block: block): string;
+    quote(block: block): string;
 };
 export declare type block = {
     type: string;

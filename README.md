@@ -1,24 +1,23 @@
 # editorjs-html
 A utility to parse editorjs clean data to HTML. 
 
-
 # Installation
 
 ### Host on Your Own
 
-**Browser** - [Get /build/edjsHTML.browser.js](./build/edjsHTML.browser.js)
+* **Browser** - [Get /build/edjsHTML.browser.js](./build/edjsHTML.browser.js)
 
-**Nodejs** -  [Get /build/edjsHTML.node.js](./build/edjsHTML.node.js)
+* **Nodejs** -  [Get /build/edjsHTML.node.js](./build/edjsHTML.node.js)
 
-**For Both Browser & Node** - [Get /build/edjsHTML.js](./build/edjsHTML.js)
+* **For Both Browser & Node** - [Get /build/edjsHTML.js](./build/edjsHTML.js)
 
 ### NPM 
 
 npm install editorjs-html
 
 ### CDN
-* https://cdn.jsdelivr.net/npm/editorjs-html@2.1.0/build/edjsHTML.js
-* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@2.1.0/build/edjsHTML.browser.js
+* https://cdn.jsdelivr.net/npm/editorjs-html@3.0.1/build/edjsHTML.js
+* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@3.0.1/build/edjsHTML.browser.js
 
 ## Usage
 
@@ -54,6 +53,7 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 * Images
 * Delimiter 
 * Paragraph
+* Quote
 
 ## Parse Entire EditorJS Data Object
 
@@ -105,9 +105,11 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 [Update] From v2.0.0 onwards, the parser functions recieves full `block` instead of just `data` property of the block. Read [releases](https://github.com/pavittarx/editorjs-html/releases) for more information.
 
 ## Contribution 
-Create an issue or send a PR for any contributions.
+Create an issue or send a PR for any contributions you would like to make.
 
-## Suggestions 
+I am thankful for everyone who has contributed their own bits to the repository. Even though the library is small and the scope for writing new or lots of features is limited. I still grateful to see a lots of  
+
+## Suggestions & Recommendations
 I would love to have your feedback and any suggestions. You can also let me know, if you need support for any more editorjs blocks. 
 
 ## Support 

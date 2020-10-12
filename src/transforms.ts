@@ -5,7 +5,8 @@ export type transforms = {
   paragraph(block: block): string;
   list(block: block): string;
   image(block: block): string;
-}
+  quote(block: block): string;
+};
 
 export type block = {
   type: string;
@@ -22,8 +23,7 @@ export type block = {
     items?: string[];
     style?: string;
   };
-}
-
+};
 
 const transforms: transforms = {
   delimiter: () => {
@@ -40,24 +40,23 @@ const transforms: transforms = {
 
   list: ({ data }) => {
     let style = data.style === "unordered" ? "ul" : "ol";
-    let list = '';
+    let list = "";
     if (data.items) {
       list = data.items
-        .map(
-          (i) =>
-            `<li> ${i} </li>`
-        )
-        .reduce((a, c) => a + c, '');
+        .map((i) => `<li> ${i} </li>`)
+        .reduce((a, c) => a + c, "");
     }
     return `<${style}> ${list} </${style}>`;
   },
 
   image: ({ data }) => {
     let caption = data.caption ? data.caption : "Image";
-    return `<img src="${data.file ? data.file.url : ''}" alt="${caption}" />`;
+    return `<img src="${data.file ? data.file.url : ""}" alt="${caption}" />`;
   },
 
- 
+  quote: ({ data }) => {
+    return `<blockquote> ${data.text} </blockquote> - ${data.caption}`;
+  },
 };
 
 export default transforms;
