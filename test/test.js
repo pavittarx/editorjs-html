@@ -1,4 +1,4 @@
-const edjsHTML =  require('./../build/edjsHTML');
+const edjsHTML = require('../build/edjsHTML');
 const data = require('./data.json');
 
 const edjsParser = edjsHTML();
