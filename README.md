@@ -1,5 +1,12 @@
 # editorjs-html
 A utility to parse editorjs clean data to HTML. 
+  - Use it with plain Javascript/Typescript, React, Angular, Vue or any templating engine of your choice.
+  - Fast, Efficient and Lightweight. 
+  - Fully customizable to the core. 
+  - Supports basic editorjs blocks which are customizable as well.
+  - Extendable for any new or custom editorjs blocks.
+
+**[Note]** As of recent release, editorjs v2.10 a read-only mode available. You can use the same to display your editorjs data. For previous versions and or someone looking for customizability and more granular control are free to use this library.
 
 # Installation
 
@@ -7,13 +14,15 @@ A utility to parse editorjs clean data to HTML.
 
 * **Browser** - [Get /build/edjsHTML.browser.js](./build/edjsHTML.browser.js)
 
-* **Nodejs** -  [Get /build/edjsHTML.node.js](./build/edjsHTML.node.js)
+* **NodeJs** -  [Get /build/edjsHTML.node.js](./build/edjsHTML.node.js)
 
 * **For Both Browser & Node** - [Get /build/edjsHTML.js](./build/edjsHTML.js)
 
 ### NPM 
 
+```shell
 npm install editorjs-html
+```
 
 ### CDN
 * https://cdn.jsdelivr.net/npm/editorjs-html@3.0.3/build/edjsHTML.js
