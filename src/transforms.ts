@@ -31,11 +31,11 @@ const transforms: transforms = {
   },
 
   header: ({ data }) => {
-    return `<h${data.level}> ${data.text} </h${data.level}>`;
+    return `<h${data.level}>${data.text}</h${data.level}>`;
   },
 
   paragraph: ({ data }) => {
-    return `<p> ${data.text} </p>`;
+    return `<p>${data.text}</p>`;
   },
 
   list: ({ data }) => {
@@ -43,10 +43,10 @@ const transforms: transforms = {
     let list = "";
     if (data.items) {
       list = data.items
-        .map((i) => `<li> ${i} </li>`)
+        .map((i) => `<li>${i}</li>`)
         .reduce((a, c) => a + c, "");
     }
-    return `<${style}> ${list} </${style}>`;
+    return `<${style}>${list}</${style}>`;
   },
 
   image: ({ data }) => {
@@ -55,7 +55,7 @@ const transforms: transforms = {
   },
 
   quote: ({ data }) => {
-    return `<blockquote> ${data.text} </blockquote> - ${data.caption}`;
+    return `<blockquote>${data.text}</blockquote> - ${data.caption}`;
   },
 };
 
