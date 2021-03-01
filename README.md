@@ -63,6 +63,7 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 * Delimiter 
 * Paragraph
 * Quote
+* Code
 
 ## Parse Entire EditorJS Data Object
 
