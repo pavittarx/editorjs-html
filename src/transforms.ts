@@ -6,6 +6,7 @@ export type transforms = {
   list(block: block): string;
   image(block: block): string;
   quote(block: block): string;
+  code(block: block): string;
 };
 
 export type block = {
@@ -22,6 +23,7 @@ export type block = {
     withBorder?: boolean;
     items?: string[];
     style?: string;
+    code?: string;
   };
 };
 
@@ -56,6 +58,10 @@ const transforms: transforms = {
 
   quote: ({ data }) => {
     return `<blockquote>${data.text}</blockquote> - ${data.caption}`;
+  },
+  
+  code: ({ data }) => {
+    return `<pre><code>${data.code}</code></pre>`;
   },
 };
 
