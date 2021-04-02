@@ -53,13 +53,7 @@ const transforms: transforms = {
 
   image: ({ data }) => {
     let caption = data.caption ? data.caption : "Image";
-    let tempfile
-  	if (data.file) {
-      tempfile = data.file
-    } else if (data.file?.url) {
-      tempfile = data.file.url
-    }
-    return `<img src="${tempfile}" alt="${caption}" />`;
+    return `<img src="${data.file}" alt="${caption}" />`;
   },
 
   quote: ({ data }) => {
