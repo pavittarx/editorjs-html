@@ -97,6 +97,28 @@
               "stretched" : false,
               "withBackground" : false
           }
+      },
+      {
+          "type" : "embed",
+          "data" : {
+              "service" : "youtube",
+              "source" : "https://www.youtube.com/watch?v=v7eMYQCNWeE",
+              "embed" : "https://www.youtube.com/embed/v7eMYQCNWeE",
+              "width" : 580,
+              "height" : 320,
+              "caption" : ""
+          }
+      },
+      {
+          "type" : "embed",
+          "data" : {
+              "service" : "vimeo",
+              "source" : "https://vimeo.com/165206543",
+              "embed" : "https://player.vimeo.com/video/165206543?title=0&byline=0",
+              "width" : 580,
+              "height" : 320,
+              "caption" : ""
+          }
       }
   ],
   "version" : "2.17.0"
