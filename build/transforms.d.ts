@@ -6,6 +6,7 @@ export declare type transforms = {
     list(block: block): string;
     image(block: block): string;
     quote(block: block): string;
+    code(block: block): string;
 };
 export declare type block = {
     type: string;
@@ -21,6 +22,7 @@ export declare type block = {
         withBorder?: boolean;
         items?: string[];
         style?: string;
+        code?: string;
     };
 };
 declare const transforms: transforms;

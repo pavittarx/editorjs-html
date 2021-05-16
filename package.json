@@ -1,6 +1,6 @@
 {
   "name": "editorjs-html",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "",
   "main": "build/edjsHTML.node.js",
   "scripts": {
