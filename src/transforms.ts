@@ -25,7 +25,7 @@ export type block = {
     items?: string[];
     style?: string;
     code?: string;
-    service?: 'vimeo' | 'youtube';
+    service?: "vimeo" | "youtube";
     source?: string;
     embed?: string;
     width?: number;
@@ -50,34 +50,36 @@ const transforms: transforms = {
     let style = data.style === "unordered" ? "ul" : "ol";
     let list = "";
     if (data.items) {
-      list = data.items
-        .map((i) => `<li>${i}</li>`)
-        .reduce((a, c) => a + c, "");
+      list = data.items.map((i) => `<li>${i}</li>`).reduce((a, c) => a + c, "");
     }
     return `<${style}>${list}</${style}>`;
   },
 
   image: ({ data }) => {
     let caption = data.caption ? data.caption : "Image";
-    return `<img src="${data.file}" alt="${caption}" />`;
+    return `<img src="${
+      data.file && data.file.url ? data.file.url : data.file
+    }" alt="${caption}" />`;
   },
 
   quote: ({ data }) => {
     return `<blockquote>${data.text}</blockquote> - ${data.caption}`;
   },
-  
+
   code: ({ data }) => {
     return `<pre><code>${data.code}</code></pre>`;
   },
-  
+
   embed: ({ data }) => {
     switch (data.service) {
-      case 'vimeo':
-        return `<iframe src="${data.embed}" height="${data.height}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
-      case 'youtube':
-        return `<iframe width="${data.width}" height="${data.height}" src="${data.embed}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      case "vimeo":
+        return `<iframe src="${data.embed}" height="${data.height}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+      case "youtube":
+        return `<iframe width="${data.width}" height="${data.height}" src="${data.embed}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       default:
-        throw new Error('Unsupported embed service type. Supported are "youtube" and "vimeo"')
+        throw new Error(
+          'Unsupported embed service type. Supported are "youtube" and "vimeo"'
+        );
     }
   },
 };
