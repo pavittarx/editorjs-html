@@ -7,6 +7,7 @@ export type transforms = {
   image(block: block): string;
   quote(block: block): string;
   code(block: block): string;
+  embed(block: block): string;
 };
 
 export type block = {
@@ -24,6 +25,11 @@ export type block = {
     items?: string[];
     style?: string;
     code?: string;
+    service?: 'vimeo' | 'youtube';
+    source?: string;
+    embed?: string;
+    width?: number;
+    height?: number;
   };
 };
 
@@ -62,6 +68,17 @@ const transforms: transforms = {
   
   code: ({ data }) => {
     return `<pre><code>${data.code}</code></pre>`;
+  },
+  
+  embed: ({ data }) => {
+    switch (data.service) {
+      case 'vimeo':
+        return `<iframe src="${data.embed}" height="${data.height}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`
+      case 'youtube':
+        return `<iframe width="${data.width}" height="${data.height}" src="${data.embed}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      default:
+        throw new Error('Unsupported embed service type. Supported are "youtube" and "vimeo"')
+    }
   },
 };
 
