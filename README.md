@@ -59,11 +59,12 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 
 * Header (H1-H6)
 * Lists (Ordered & Unordered)
-* Images
+* Image
 * Delimiter 
 * Paragraph
 * Quote
 * Code
+* Embed
 
 ## Parse Entire EditorJS Data Object
 
@@ -74,11 +75,31 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
   console.log(HTML);
 ```
 
+## Parse Entire EditorJS Data Object (Strict)
+
+```js
+  const edjsParser = edjsHTML();
+  const HTML = edjsParser.parseStrict(editorjs_data);
+  // returns an error
+  if(HTML instanceof Error) throw HTML;
+
+  // in case of success, returns an array of strings
+  console.log(HTML);
+```
+
 ## Parse Single Clean Data Block
 
 ```js
   const edjsParser = edjsHTML();
-  const blockHTML = edjsParser.parseBlock(editorjs_clean_data_block);
+  const blockHTML = edjsParser.parseBlock(editorjs_data_block);
+  // returns string of html for this block
+  console.log(blockHTML);
+```
+## Get the missing parser functions 
+
+```js
+  const edjsParser = edjsHTML();
+  const blockHTML = edjsParser.validate(editorjs_data);
   // returns string of html for this block
   console.log(blockHTML);
 ```
