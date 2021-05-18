@@ -99,7 +99,7 @@
       }
     },
     {
-      "type": "embed",
+      "type": "squirrel",
       "data": {
         "service": "youtube",
         "source": "https://www.youtube.com/watch?v=v7eMYQCNWeE",
@@ -110,7 +110,7 @@
       }
     },
     {
-      "type": "embed",
+      "type": "kaboom",
       "data": {
         "service": "vimeo",
         "source": "https://vimeo.com/165206543",

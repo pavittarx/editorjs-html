@@ -7,6 +7,7 @@ export declare type transforms = {
     image(block: block): string;
     quote(block: block): string;
     code(block: block): string;
+    embed(block: block): string;
 };
 export declare type block = {
     type: string;
@@ -23,6 +24,11 @@ export declare type block = {
         items?: string[];
         style?: string;
         code?: string;
+        service?: "vimeo" | "youtube";
+        source?: string;
+        embed?: string;
+        width?: number;
+        height?: number;
     };
 };
 declare const transforms: transforms;
