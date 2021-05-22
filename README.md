@@ -75,7 +75,7 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
   console.log(HTML);
 ```
 
-## Parse Entire EditorJS Data Object (Strict)
+## Parse Entire EditorJS Data Object (Strict Mode)
 
 ```js
   const edjsParser = edjsHTML();
@@ -95,12 +95,12 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
   // returns string of html for this block
   console.log(blockHTML);
 ```
-## Get the missing parser functions 
+## Get the list of missing parser functions 
 
 ```js
   const edjsParser = edjsHTML();
+  // returns the list of missing parser functions
   const blockHTML = edjsParser.validate(editorjs_data);
-  // returns string of html for this block
   console.log(blockHTML);
 ```
 
