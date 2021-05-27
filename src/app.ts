@@ -10,25 +10,25 @@ type parser = {
 };
 
 const parser = (plugins = {}): parser => {
-  Object.assign(plugins, transforms);
+  const parsers = Object.assign({}, transforms, plugins);
 
   return {
     parse: ({ blocks }) => {
       return blocks.map((block) => {
-        return transforms[block.type]
-          ? transforms[block.type](block)
+        return parsers[block.type]
+          ? parsers[block.type](block)
           : ParseFunctionError(block.type);
       });
     },
 
     parseBlock: (block) => {
-      return transforms[block.type]
-        ? transforms[block.type](block)
+      return parsers[block.type]
+        ? parsers[block.type](block)
         : ParseFunctionError(block.type);
     },
 
     parseStrict: ({ blocks }) => {
-      const parserFreeBlocks = parser(plugins).validate({ blocks });
+      const parserFreeBlocks = parser(parsers).validate({ blocks });
 
       if (parserFreeBlocks.length)
         return new Error(
@@ -38,10 +38,10 @@ const parser = (plugins = {}): parser => {
       const parsed = [];
 
       for (let i = 0; i < blocks.length; i++) {
-        if (!transforms[blocks[i].type])
+        if (!parsers[blocks[i].type])
           throw ParseFunctionError(blocks[i].type);
 
-        parsed.push(transforms[blocks[i].type](blocks[i]));
+        parsed.push(parsers[blocks[i].type](blocks[i]));
       }
 
       return parsed;
@@ -55,9 +55,9 @@ const parser = (plugins = {}): parser => {
             blocksArr.indexOf(item) === index
         );
 
-      const parsers = Object.keys(transforms);
+      const parser_keys = Object.keys(parsers);
 
-      return types.filter((type) => !parsers.includes(type));
+      return types.filter((type) => !parser_keys.includes(type));
     },
   };
 };
