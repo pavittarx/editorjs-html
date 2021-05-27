@@ -30,10 +30,9 @@ const parser = (plugins = {}): parser => {
     parseStrict: ({ blocks }) => {
       const parserFreeBlocks = parser(parsers).validate({ blocks });
 
-      if (parserFreeBlocks.length)
-        return new Error(
-          `Parser Functions missing for blocks: ${parserFreeBlocks.toString()}`
-        );
+      if (parserFreeBlocks.length){
+        throw new Error(`Parser Functions missing for blocks: ${parserFreeBlocks.toString()}`);
+      }
 
       const parsed = [];
 
