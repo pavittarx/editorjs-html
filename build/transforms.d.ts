@@ -9,6 +9,10 @@ export declare type transforms = {
     code(block: block): string;
     embed(block: block): string;
 };
+declare type ListItem = {
+    content: string;
+    items: Array<ListItem>;
+};
 export declare type block = {
     type: string;
     data: {
@@ -21,7 +25,7 @@ export declare type block = {
         stretched?: boolean;
         withBackground?: boolean;
         withBorder?: boolean;
-        items?: string[];
+        items?: Array<string> | Array<ListItem>;
         style?: string;
         code?: string;
         service?: "vimeo" | "youtube";

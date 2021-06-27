@@ -10,6 +10,11 @@ export type transforms = {
   embed(block: block): string;
 };
 
+type ListItem = {
+  content: string;
+  items: Array<ListItem>;
+};
+
 export type block = {
   type: string;
   data: {
@@ -22,7 +27,7 @@ export type block = {
     stretched?: boolean;
     withBackground?: boolean;
     withBorder?: boolean;
-    items?: string[];
+    items?: Array<string> | Array<ListItem>;
     style?: string;
     code?: string;
     service?: "vimeo" | "youtube";
@@ -47,12 +52,21 @@ const transforms: transforms = {
   },
 
   list: ({ data }) => {
-    let style = data.style === "unordered" ? "ul" : "ol";
-    let list = "";
-    if (data.items) {
-      list = data.items.map((i) => `<li>${i}</li>`).reduce((a, c) => a + c, "");
-    }
-    return `<${style}>${list}</${style}>`;
+    const listStyle = data.style === "unordered" ? "ul" : "ol";
+
+    const recursor = (items: any, listStyle: string) => {
+      const list = items.map((item: any) => {
+        if (!item.content && !item.items) return `<li>${item}</li>`;
+
+        let list = "";
+        if (item.items) list = recursor(item.items, listStyle);
+        if (item.content) return `<li> ${item.content} </li>` + list;
+      });
+
+      return `<${listStyle}>${list.join("")}</${listStyle}>`;
+    };
+
+    return recursor(data.items, listStyle);
   },
 
   image: ({ data }) => {
@@ -78,7 +92,7 @@ const transforms: transforms = {
         return `<iframe width="${data.width}" height="${data.height}" src="${data.embed}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
       default:
         throw new Error(
-          'Unsupported embed service type. Supported are "youtube" and "vimeo"'
+          "Only Youtube and Vime Embeds are supported right now."
         );
     }
   },

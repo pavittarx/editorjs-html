@@ -25,8 +25,8 @@ npm install editorjs-html
 ```
 
 ### CDN
-* https://cdn.jsdelivr.net/npm/editorjs-html@3.0.3/build/edjsHTML.js
-* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@3.0.3/build/edjsHTML.browser.js
+* https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.js
+* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.browser.js
 
 ## Usage
 
@@ -59,6 +59,7 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 
 * Header (H1-H6)
 * Lists (Ordered & Unordered)
+* Nested Lists
 * Image
 * Delimiter 
 * Paragraph
