@@ -21,6 +21,7 @@ export type block = {
     text?: string;
     level?: number;
     caption?: string;
+    url?: string;
     file?: {
       url?: string;
     };
@@ -72,7 +73,7 @@ const transforms: transforms = {
   image: ({ data }) => {
     let caption = data.caption ? data.caption : "Image";
     return `<img src="${
-      data.file && data.file.url ? data.file.url : data.file
+      data.file && data.file.url ? data.file.url : data.url
     }" alt="${caption}" />`;
   },
 
