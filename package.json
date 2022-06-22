@@ -3,6 +3,7 @@
   "version": "3.4.2",
   "description": "",
   "main": "build/edjsHTML.node.js",
+  "types": "build/app.d.ts",
   "scripts": {
     "test": "npm run build && node test/test",
     "build": "rollup --config"
