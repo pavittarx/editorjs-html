@@ -15,6 +15,8 @@ type ListItem = {
   items: Array<ListItem>;
 };
 
+const alignType = ["left", "right", "center", "justify"]
+
 export type block = {
   type: string;
   data: {
@@ -36,6 +38,8 @@ export type block = {
     embed?: string;
     width?: number;
     height?: number;
+    alignment?: "left" | "right" | "center" | "justify";
+    align?: "left" | "right" | "center" | "justify";
   };
 };
 
@@ -49,7 +53,13 @@ const transforms: transforms = {
   },
 
   paragraph: ({ data }) => {
-    return `<p>${data.text}</p>`;
+    const paragraphAlign = data.alignment || data.align;
+
+    if (typeof paragraphAlign !== 'undefined' && alignType.includes(paragraphAlign)) {
+      return `<p style="text-align:${paragraphAlign};">${data.text}</p>`;
+    } else {
+      return `<p>${data.text}</p>`
+    }
   },
 
   list: ({ data }) => {
