@@ -8,6 +8,7 @@ export declare type transforms = {
     quote(block: block): string;
     code(block: block): string;
     embed(block: block): string;
+    table(block: block): string;
 };
 declare type ListItem = {
     content: string;

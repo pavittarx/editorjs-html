@@ -8,6 +8,7 @@ export type transforms = {
   quote(block: block): string;
   code(block: block): string;
   embed(block: block): string;
+  table(block: block): string;
 };
 
 type ListItem = {
@@ -97,6 +98,19 @@ const transforms: transforms = {
         );
     }
   },
-};
 
+  table: ({ data }) => {
+    const tableParser = (data: any) => {
+      const tableBody = data.content.map(
+        (elem: any) =>
+          `<tr>${elem.reduce((acc: string, curr: string) => {
+            acc += `<td>${curr}</td>`;
+            return acc;
+          }, "")}</tr>`
+      );
+      return `<tbody>${tableBody.join("")}</tbody>`;
+    };
+    return `<table>${tableParser(data)}</table>`;
+  },
+};
 export default transforms;
