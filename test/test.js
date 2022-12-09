@@ -29,3 +29,19 @@ console.log(customParser.validate(data));
 
 // test for issue #21
 console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar"}}) === '<p>foo bar</p>');
+
+// test for issue #39
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", alignment: "right"}}) === '<p style="text-align:right;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", alignment: "justify"}}) === '<p style="text-align:justify;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", alignment: "center"}}) === '<p style="text-align:center;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", alignment: "left"}}) === '<p style="text-align:left;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", alignment: "wrong type"}}) === '<p>foo bar</p>');
+
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", align: "right"}}) === '<p style="text-align:right;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", align: "justify"}}) === '<p style="text-align:justify;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", align: "center"}}) === '<p style="text-align:center;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", align: "left"}}) === '<p style="text-align:left;">foo bar</p>');
+console.log(edjsParser.parseBlock({type: "paragraph", data: {text: "foo bar", align: "wrong type"}}) === '<p>foo bar</p>');
+
+
+

@@ -34,6 +34,8 @@ export declare type block = {
         embed?: string;
         width?: number;
         height?: number;
+        alignment?: "left" | "right" | "center" | "justify";
+        align?: "left" | "right" | "center" | "justify";
     };
 };
 declare const transforms: transforms;

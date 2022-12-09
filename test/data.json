@@ -11,7 +11,8 @@
     {
       "type": "paragraph",
       "data": {
-        "text": "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text."
+        "text": "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text.",
+        "alignment": "justify"
       }
     },
     {
@@ -42,13 +43,15 @@
     {
       "type": "paragraph",
       "data": {
-        "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core."
+        "text": "Workspace in classic editors is made of a single contenteditable element, used to create different HTML markups. Editor.js <mark class=\"cdx-marker\">workspace consists of separate Blocks: paragraphs, headings, images, lists, quotes, etc</mark>. Each of them is an independent contenteditable element (or more complex structure) provided by Plugin and united by Editor's Core.",
+        "alignment": "right"
       }
     },
     {
       "type": "paragraph",
       "data": {
-        "text": "There are dozens of <a href=\"https://github.com/editor-js\">ready-to-use Blocks</a> and the <a href=\"https://editorjs.io/creating-a-block-tool\">simple API</a> for creation any Block you need. For example, you can implement Blocks for Tweets, Instagram posts, surveys and polls, CTA-buttons and even games."
+        "text": "There are dozens of <a href=\"https://github.com/editor-js\">ready-to-use Blocks</a> and the <a href=\"https://editorjs.io/creating-a-block-tool\">simple API</a> for creation any Block you need. For example, you can implement Blocks for Tweets, Instagram posts, surveys and polls, CTA-buttons and even games.",
+        "alignment": "left"
       }
     },
     {
@@ -61,7 +64,8 @@
     {
       "type": "paragraph",
       "data": {
-        "text": "Classic WYSIWYG-editors produce raw HTML-markup with both content data and content appearance. On the contrary, Editor.js outputs JSON object with data of each Block. You can see an example below"
+        "text": "Classic WYSIWYG-editors produce raw HTML-markup with both content data and content appearance. On the contrary, Editor.js outputs JSON object with data of each Block. You can see an example below",
+        "alignment": "center"
       }
     },
     {
@@ -73,7 +77,8 @@
     {
       "type": "paragraph",
       "data": {
-        "text": "Clean data is useful to sanitize, validate and process on the backend."
+        "text": "Clean data is useful to sanitize, validate and process on the backend.",
+        "alignment": "center"
       }
     },
     {
