@@ -71,7 +71,7 @@ const transforms: transforms = {
 
         let list = "";
         if (item.items) list = recursor(item.items, listStyle);
-        if (item.content) return `<li> ${item.content} </li>` + list;
+        if (item.content) return `<li> ${item.content} ${list} </li>`;
       });
 
       return `<${listStyle}>${list.join("")}</${listStyle}>`;
