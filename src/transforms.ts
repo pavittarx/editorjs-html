@@ -70,7 +70,7 @@ const transforms: transforms = {
         if (!item.content && !item.items) return `<li>${item}</li>`;
 
         let list = "";
-        if (item.items) list = recursor(item.items, listStyle);
+        if (item.items.length) list = recursor(item.items, listStyle);
         if (item.content) return `<li> ${item.content} ${list} </li>`;
       });
 
