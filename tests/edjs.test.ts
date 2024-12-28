@@ -1,4 +1,4 @@
-import parser from "./../src/main";
+import parser from "../src/main";
 import data from "./data.json";
 import corruptData from "./shittyData.json";
 
