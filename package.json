@@ -6,7 +6,19 @@
   "types": "build/app.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rollup --config && rm -rf .build/node_modules && rm -rf .build/src"
+    "build": "rollup --config && rm -rf .build/node_modules && rm -rf .build/src",
+    "prepare": "husky install"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "keywords": [
     "editorjs",
@@ -28,7 +40,13 @@
     "@rollup/plugin-typescript": "^12.1.2",
     "@types/jest": "^29.5.14",
     "babel-jest": "^29.7.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^8.0.0",
     "jest": "^29.7.0",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
     "rollup": "^4.29.1",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
