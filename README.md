@@ -4,14 +4,19 @@ A utility to parse editorjs clean data to HTML.
   - Fast, Efficient and Lightweight. 
   - Fully customizable to the core. 
   - Supports basic editorjs blocks which are customizable as well.
-  - Extendable for any new or custom editorjs blocks.
+  - Extend to parse your own blocks.
 
-**[Note]** As of recent release, editorjs v2.10 a read-only mode available. You can use the same to display your editorjs data. However, **someone looking for something lightweight with customizability and more granular control are free to use this library.**
+### Whats' new in v4?
+  - Complete Rewrite, latest dependencies with minimal API changes.
+  - Redundant `parseStrict()` and `validate()` functions are removed.
+  - Strict mode is configurable via options. 
+  - Console errors if parser functions for block is not avaiable. Strict Mode throws errors.
+  - Code is more readable, modular. It would make it easier to contribute and track changes. 
+  - Type definitions directly fetched from Editor.js, so development becomes easier.
+  - Unit Testing with Jest. 
 
 # Installation
-
-### Host on Your Own
-
+### Self Host, precompiled versions.
 * **Browser** - [Get /build/edjsHTML.browser.js](./build/edjsHTML.browser.js)
 
 * **NodeJs** -  [Get /build/edjsHTML.node.js](./build/edjsHTML.node.js)
@@ -25,17 +30,15 @@ npm install editorjs-html
 ```
 
 ### CDN
-* https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.js
-* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@3.4.0/build/edjsHTML.browser.js
+* https://cdn.jsdelivr.net/npm/editorjs-html@4.0.0/build/edjsHTML.js
+* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@4.0.0/build/edjsHTML.browser.js
 
 ## Usage
 
 ### Browser
 ```js
   const edjsParser = edjsHTML();
-
   let html = edjsParser.parse(editorjs_clean_data);
-
   console.log(html);
 ```
 
@@ -56,7 +59,6 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 ## Docs
 
 ### Supported Block Types 
-
 * Header (H1-H6)
 * Lists (Ordered & Unordered)
 * Nested Lists
@@ -80,7 +82,7 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
 
 ```js
   const edjsParser = edjsHTML();
-  const HTML = edjsParser.parseStrict(editorjs_data);
+  const HTML = edjsParser.parse(editorjs_data);
   // returns an error
   if(HTML instanceof Error) throw HTML;
 
@@ -96,25 +98,20 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
   // returns string of html for this block
   console.log(blockHTML);
 ```
-## Get the list of missing parser functions 
+## Strict Mode
 
 ```js
-  const edjsParser = edjsHTML();
+  const edjsParser = edjsHTML({}, {strict: true});
   // returns the list of missing parser functions
-  const blockHTML = edjsParser.validate(editorjs_data);
+  const blockHTML = edjsParser.parse(editorjs_data);
   console.log(blockHTML);
 ```
 
 ### Extend For Custom Blocks 
-`editorjs-html`  supports extending its functionality to render custom editorjs blocks. Moroever, You can even override these basic supported blocks.
-
-* The `edjsHTML()` accepts an optional object that would allow you to extend its functionality. 
-
-* The name of the function must match with editor-js custom block type.
-
+`editorjs-html` supports extending and overriding parser functions for blocks.
 
 ```js
-  // Your custom editorjs generated block
+  // Example Custom or Unrecognised Block
   {
     type: "custom",
     data: {
@@ -130,16 +127,23 @@ See [Releases](https://github.com/pavittarx/editorjs-html/releases)
     return `<custom-tag> ${block.data.text} </custom-tag>`;
   }
 
-  const edjsParser =  edjsHTML({custom: customParser});
+  const plugins = {
+    // The keyname must match with the type of block you want to parse with this funcion
+    custom: customParser
+    // ... add more or overwrite
+  }
 
+  const edjsParser =  edjsHTML(plugins);
 ```
 
-[Update] From v2.0.0 onwards, the parser functions recieves full `block` instead of just `data` property of the block. Read [releases](https://github.com/pavittarx/editorjs-html/releases) for more information.
-
 ## Contribution 
-Create an issue or send a PR for any contributions you would like to make.
+Please add an issue, or open a PR for any bugs, review or suggestions. 
 
-I am thankful for everyone who has contributed their own bits to the repository. Even though the library is small and the scope for writing new or lots of features is limited. I still grateful to see a lots of contributions coming in.
+### New Parser Functions
+1. For additional parser functions, please add them to `parsers/block-name`. Check existing functions for suggestions.
+2. Test everyting works fine, with `pnpm test` && `pnpm build`. 
+3. Open a PR, for review.
+4. Add tests in `tests` directory. Make sure your tests pass with appropriate coverage.
 
 ## Suggestions & Recommendations
 I would love to have your feedback and any suggestions. You can also let me know, if you need support for any more editorjs blocks. 
