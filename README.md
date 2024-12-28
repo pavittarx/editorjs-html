@@ -17,11 +17,11 @@ A utility to parse editorjs clean data to HTML.
 
 # Installation
 ### Self Host, precompiled versions.
-* **Browser** - [Get /build/edjsHTML.browser.js](./build/edjsHTML.browser.js)
+* **Browser** - [Get /.build/edjsHTML.browser.js](./.build/edjsHTML.browser.js)
 
-* **NodeJs** -  [Get /build/edjsHTML.node.js](./build/edjsHTML.node.js)
+* **NodeJs** -  [Get /.build/edjsHTML.node.js](./.build/edjsHTML.node.js)
 
-* **For Both Browser & Node** - [Get /build/edjsHTML.js](./build/edjsHTML.js)
+* **For Both Browser & Node** - [Get /.build/edjsHTML.js](./.build/edjsHTML.js)
 
 ### NPM 
 
@@ -30,8 +30,8 @@ npm install editorjs-html
 ```
 
 ### CDN
-* https://cdn.jsdelivr.net/npm/editorjs-html@4.0.0/build/edjsHTML.js
-* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@4.0.0/build/edjsHTML.browser.js
+* https://cdn.jsdelivr.net/npm/editorjs-html@4.0.0/.build/edjsHTML.js
+* (Browser Only Build): https://cdn.jsdelivr.net/npm/editorjs-html@4.0.0/.build/edjsHTML.browser.js
 
 ## Usage
 
