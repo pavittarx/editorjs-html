@@ -1,10 +1,10 @@
 import { OutputBlockData, OutputData } from "@editorjs/editorjs";
 import { default as parsers } from "./parsers";
 
-type Plugins = (props: OutputBlockData) => {}
+type Plugins = (props: OutputBlockData) => {};
 type Options = {
   strict: boolean;
-}
+};
 
 const parse = ({blocks}: OutputData, parsers: Record<string, Plugins>, options: Options) => {
     return blocks.reduce((accumlator: string, block: OutputBlockData) => {

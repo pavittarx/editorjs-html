@@ -6,20 +6,27 @@ export default {
   input: "src/main.ts",
   output: [
     {
-      file: "build/edjsHTML.js",
+      file: ".build/edjsHTML.js",
       format: "umd",
       name: "edjsHTML",
     },
     {
-      file: "build/edjsHTML.node.js",
+      file: ".build/edjsHTML.node.js",
       name: 'edjsHTML',
       format: "cjs",
     },
     {
-      file: "build/edjsHTML.browser.js",
+      file: ".build/edjsHTML.browser.js",
       name: "edjsHTML",
       format: "iife",
     } 
   ],
-  plugins: [babel(), terser(), typescript()],
+  plugins: [
+    typescript(), 
+    babel({
+      babelHelpers: "bundled",
+      extensions: [".ts"]
+    }), 
+    terser()
+  ],
 };
