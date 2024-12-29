@@ -87,9 +87,7 @@ describe('Testing Parser Transformer Functions', () => {
     };
 
     const html = edjsParser.parseBlock(listBlock);
-    expect(html).toBe(
-      '<ul><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li></ul></li></ul>'
-    );
+    expect(html).toBe('<ul><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li></ul></li></ul>');
   });
 });
 

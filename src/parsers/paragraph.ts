@@ -1,4 +1,4 @@
-import { OutputBlockData } from "@editorjs/editorjs";
+import { OutputBlockData } from '@editorjs/editorjs';
 
 export const paragraph = ({ data }: OutputBlockData): string => {
   const align = data.alignment || data.align;

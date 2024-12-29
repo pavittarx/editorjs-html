@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "declaration": true,
-    "outDir": "./.build",
+    "outDir": "./.build"
     // "paths": {
     //   "tslib": [ "./node_modules/tslib/tslib.d.ts" ]
     // }
