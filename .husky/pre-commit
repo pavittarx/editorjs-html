@@ -1,1 +1,1 @@
-npm run test && npm run build && git add .build && npx lint-staged --allow-empty
+npx lint-staged --allow-empty && npm run test && npm run build && git add .build
