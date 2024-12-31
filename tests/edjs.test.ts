@@ -1,44 +1,44 @@
-import parser from '../src/main';
-import data from './data.json';
-import corruptData from './shittyData.json';
+import parser from "../src/main";
+import data from "./data.json";
+import corruptData from "./shittyData.json";
 
-test('All Methods are defined and available', () => {
+test("All Methods are defined and available", () => {
   const edjsParser = parser();
 
-  expect(edjsParser['parse']).toBeDefined();
-  expect(edjsParser['parseBlock']).toBeDefined();
+  expect(edjsParser["parse"]).toBeDefined();
+  expect(edjsParser["parseBlock"]).toBeDefined();
 });
 
-describe('Testing Parser Transformer Functions', () => {
+describe("Testing Parser Transformer Functions", () => {
   const edjsParser = parser();
 
-  test('Code Works', () => {
+  test("Code Works", () => {
     const block = {};
   });
 
-  test('Delimiter Works', () => {
+  test("Delimiter Works", () => {
     const delimiterBlock = {
-      type: 'delimiter',
+      type: "delimiter",
       data: {},
     };
 
     const html = edjsParser.parseBlock(delimiterBlock);
-    expect(html).toBe('<br/>');
+    expect(html).toBe("<br/>");
   });
 
-  test('Header Works', () => {
+  test("Header Works", () => {
     const h1Block = {
-      type: 'header',
+      type: "header",
       data: {
-        text: 'Editor.js',
+        text: "Editor.js",
         level: 1,
       },
     };
 
     const h5Block = {
-      type: 'header',
+      type: "header",
       data: {
-        text: 'Editor.js',
+        text: "Editor.js",
         level: 5,
       },
     };
@@ -50,12 +50,12 @@ describe('Testing Parser Transformer Functions', () => {
     expect(h5html).toBe(`<h5>Editor.js</h5>`);
   });
 
-  test('Paragraph Works', () => {
+  test("Paragraph Works", () => {
     const paraBlock = {
-      type: 'paragraph',
+      type: "paragraph",
       data: {
-        text: 'Hey. Meet the new Editor. On this page you can see it in action — try to edit this text.',
-        alignment: 'justify',
+        text: "Hey. Meet the new Editor. On this page you can see it in action — try to edit this text.",
+        alignment: "justify",
       },
     };
 
@@ -63,21 +63,21 @@ describe('Testing Parser Transformer Functions', () => {
     expect(html).toBeDefined();
   });
 
-  test('Nested List', () => {
+  test("Nested List", () => {
     const listBlock = {
-      type: 'list',
+      type: "list",
       data: {
-        style: 'unordered',
+        style: "unordered",
         items: [
           {
-            content: 'Item 1',
+            content: "Item 1",
             items: [],
           },
           {
-            content: 'Item 2',
+            content: "Item 2",
             items: [
               {
-                content: 'Subitem 1',
+                content: "Subitem 1",
                 items: [],
               },
             ],
@@ -87,20 +87,22 @@ describe('Testing Parser Transformer Functions', () => {
     };
 
     const html = edjsParser.parseBlock(listBlock);
-    expect(html).toBe('<ul><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li></ul></li></ul>');
+    expect(html).toBe(
+      "<ul><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li></ul></li></ul>"
+    );
   });
 });
 
-describe('Batch Parsing Check', () => {
+describe("Batch Parsing Check", () => {
   const edjsParser = parser();
 
-  test('Parser Works on Complete Data', () => {
+  test("Parser Works on Complete Data", () => {
     const html = edjsParser.parse(data);
 
     expect(html).toBeDefined();
   });
 
-  test('Shitty Data Parse Check', () => {
+  test("Shitty Data Parse Check", () => {
     const html = edjsParser.parse(corruptData);
 
     // This should pass with console.error() for unconfigured blocks
@@ -108,21 +110,21 @@ describe('Batch Parsing Check', () => {
   });
 });
 
-describe('Strict Mode Check', () => {
+describe("Strict Mode Check", () => {
   const edjsParser = parser({}, { strict: true });
 
-  test('Parser Thows Error for Unrecognised Blocks', () => {
+  test("Parser Thows Error for Unrecognised Blocks", () => {
     const func = () => edjsParser.parse(corruptData);
 
     expect(func).toThrow();
   });
 });
 
-describe('Custom Parser Functions Check', () => {
+describe("Custom Parser Functions Check", () => {
   const customBlock = {
-    type: 'custom',
+    type: "custom",
     data: {
-      text: 'Editor.js',
+      text: "Editor.js",
       level: 2,
     },
   };
@@ -134,12 +136,12 @@ describe('Custom Parser Functions Check', () => {
   };
 
   const edjsParser = parser(customParsers);
-  test('parseBlock() Parses custom block', () => {
+  test("parseBlock() Parses custom block", () => {
     const html = edjsParser.parseBlock(customBlock);
     expect(html).toBeDefined();
   });
 
-  test('parse() Parses custom block', () => {
+  test("parse() Parses custom block", () => {
     const data = { blocks: [customBlock] };
     const html = edjsParser.parse(data);
     expect(html).toBeDefined();

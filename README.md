@@ -52,7 +52,7 @@ console.log(html);
 ### Nodejs
 
 ```js
-const edjsHTML = require('editorjs-html');
+const edjsHTML = require("editorjs-html");
 const edjsParser = edjsHTML();
 const html = edjsParser.parse(editorjs_clean_data);
 
