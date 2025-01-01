@@ -62,6 +62,35 @@ describe("Testing Parser Transformer Functions", () => {
     const html = edjsParser.parseBlock(paraBlock);
     expect(html).toBeDefined();
   });
+
+  test("Nested List", () => {
+    const listBlock = {
+      type: "list",
+      data: {
+        style: "unordered",
+        items: [
+          {
+            content: "Item 1",
+            items: [],
+          },
+          {
+            content: "Item 2",
+            items: [
+              {
+                content: "Subitem 1",
+                items: [],
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+    const html = edjsParser.parseBlock(listBlock);
+    expect(html).toBe(
+      "<ul><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li></ul></li></ul>"
+    );
+  });
 });
 
 describe("Batch Parsing Check", () => {
@@ -91,7 +120,7 @@ describe("Strict Mode Check", () => {
   });
 });
 
-describe('Custom Parser Functions Check', () => {
+describe("Custom Parser Functions Check", () => {
   const customBlock = {
     type: "custom",
     data: {
@@ -107,14 +136,14 @@ describe('Custom Parser Functions Check', () => {
   };
 
   const edjsParser = parser(customParsers);
-  test('parseBlock() Parses custom block', () => {
-      const html = edjsParser.parseBlock(customBlock);
-      expect(html).toBeDefined();
-  })
+  test("parseBlock() Parses custom block", () => {
+    const html = edjsParser.parseBlock(customBlock);
+    expect(html).toBeDefined();
+  });
 
   test("parse() Parses custom block", () => {
-    const data = {blocks:[customBlock]};
+    const data = { blocks: [customBlock] };
     const html = edjsParser.parse(data);
     expect(html).toBeDefined();
   });
-})
+});
