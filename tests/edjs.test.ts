@@ -91,6 +91,46 @@ describe("Testing Parser Transformer Functions", () => {
       "<ul><li>Item 1</li><li>Item 2<ul><li>Subitem 1</li></ul></li></ul>"
     );
   });
+
+  test("Table with headings Works", () => {
+    const tableBlock = {
+      type: "table",
+      data: {
+        withHeadings: true,
+        stretched: false,
+        content: [
+          ["Kine", "Pigs", "Chicken"],
+          ["1 pcs", "3 pcs", "12 pcs"],
+          ["100$", "200$", "150$"],
+        ],
+      },
+    };
+
+    const html = edjsParser.parseBlock(tableBlock);
+    expect(html).toBe(
+      "<table><tr><th>Kine</th><th>Pigs</th><th>Chicken</th></tr><tr><td>1 pcs</td><td>3 pcs</td><td>12 pcs</td></tr><tr><td>100$</td><td>200$</td><td>150$</td></tr></table>"
+    );
+  });
+
+  test("Table without headings Works", () => {
+    const tableBlock = {
+      type: "table",
+      data: {
+        withHeadings: false,
+        stretched: false,
+        content: [
+          ["Kine", "Pigs", "Chicken"],
+          ["1 pcs", "3 pcs", "12 pcs"],
+          ["100$", "200$", "150$"],
+        ],
+      },
+    };
+
+    const html = edjsParser.parseBlock(tableBlock);
+    expect(html).toBe(
+      "<table><tr><td>Kine</td><td>Pigs</td><td>Chicken</td></tr><tr><td>1 pcs</td><td>3 pcs</td><td>12 pcs</td></tr><tr><td>100$</td><td>200$</td><td>150$</td></tr></table>"
+    );
+  });
 });
 
 describe("Batch Parsing Check", () => {
@@ -105,15 +145,16 @@ describe("Batch Parsing Check", () => {
   test("Shitty Data Parse Check", () => {
     const html = edjsParser.parse(corruptData);
 
-    // This should pass with console.error() for unconfigured blocks
+    // This should pass with console.error() for un-configured blocks
     expect(html).toBeDefined();
+    expect();
   });
 });
 
 describe("Strict Mode Check", () => {
   const edjsParser = parser({}, { strict: true });
 
-  test("Parser Thows Error for Unrecognised Blocks", () => {
+  test("Parser Throws Error for Unrecognised Blocks", () => {
     const func = () => edjsParser.parse(corruptData);
 
     expect(func).toThrow();
