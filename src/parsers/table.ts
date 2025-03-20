@@ -14,15 +14,13 @@ export const table = ({ data }: OutputBlockData) => {
     };
 
     const x = items.map((item: string[], index: number) => {
-      let isHeading = false;
       if (index === 0 && enableHeadings) {
-        isHeading = true;
+        return `<tr>${tableContents(item, true)}</tr>`;
       }
-
-      return `<tr>${tableContents(item, isHeading)}</tr>`;
+      return `<tr>${tableContents(item, false)}</tr>`;
     });
     return x.join("");
   };
 
-  return `<table>${tableRow(data.content, data.withHeadings ?? false)}</table>`;
+  return `<table class="text-center mx-auto">${tableRow(data.content, data.withHeadings ?? false)}</table>`;
 };

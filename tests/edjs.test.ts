@@ -13,7 +13,17 @@ describe("Testing Parser Transformer Functions", () => {
   const edjsParser = parser();
 
   test("Code Works", () => {
-    const block = {};
+    const codeBlock = {
+      type: "code",
+      data: {
+        code: "body {\n font-size: 14px;\n line-height: 16px;\n}",
+      },
+    };
+
+    const html = edjsParser.parseBlock(codeBlock);
+    expect(html).toBe(
+      "<pre><code>body {\n font-size: 14px;\n line-height: 16px;\n}</code></pre>"
+    );
   });
 
   test("Delimiter Works", () => {
@@ -108,7 +118,7 @@ describe("Testing Parser Transformer Functions", () => {
 
     const html = edjsParser.parseBlock(tableBlock);
     expect(html).toBe(
-      "<table><tr><th>Kine</th><th>Pigs</th><th>Chicken</th></tr><tr><td>1 pcs</td><td>3 pcs</td><td>12 pcs</td></tr><tr><td>100$</td><td>200$</td><td>150$</td></tr></table>"
+      '<table class="text-center mx-auto"><tr><th>Kine</th><th>Pigs</th><th>Chicken</th></tr><tr><td>1 pcs</td><td>3 pcs</td><td>12 pcs</td></tr><tr><td>100$</td><td>200$</td><td>150$</td></tr></table>'
     );
   });
 
@@ -128,7 +138,7 @@ describe("Testing Parser Transformer Functions", () => {
 
     const html = edjsParser.parseBlock(tableBlock);
     expect(html).toBe(
-      "<table><tr><td>Kine</td><td>Pigs</td><td>Chicken</td></tr><tr><td>1 pcs</td><td>3 pcs</td><td>12 pcs</td></tr><tr><td>100$</td><td>200$</td><td>150$</td></tr></table>"
+      '<table class="text-center mx-auto"><tr><td>Kine</td><td>Pigs</td><td>Chicken</td></tr><tr><td>1 pcs</td><td>3 pcs</td><td>12 pcs</td></tr><tr><td>100$</td><td>200$</td><td>150$</td></tr></table>'
     );
   });
 });
@@ -147,7 +157,6 @@ describe("Batch Parsing Check", () => {
 
     // This should pass with console.error() for un-configured blocks
     expect(html).toBeDefined();
-    expect();
   });
 });
 
