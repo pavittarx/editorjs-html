@@ -6,6 +6,7 @@ import { image } from "./image";
 import { list } from "./list";
 import { paragraph } from "./paragraph";
 import { quote } from "./quote";
+import { table } from "./table";
 
 export default {
   code: code,
@@ -16,4 +17,5 @@ export default {
   paragraph: paragraph,
   quote: quote,
   delimiter: delimiter,
+  table: table,
 };

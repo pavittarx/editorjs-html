@@ -7,5 +7,6 @@ declare const _default: {
     paragraph: ({ data }: import("@editorjs/editorjs").OutputBlockData) => string;
     quote: ({ data }: import("@editorjs/editorjs").OutputBlockData) => string;
     delimiter: ({ data }: import("@editorjs/editorjs").OutputBlockData) => string;
+    table: ({ data }: import("@editorjs/editorjs").OutputBlockData) => string;
 };
 export default _default;
