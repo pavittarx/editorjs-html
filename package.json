@@ -2,8 +2,8 @@
   "name": "editorjs-html",
   "version": "4.0.0",
   "description": "",
-  "main": "build/edjsHTML.node.js",
-  "types": "build/app.d.ts",
+  "main": ".build/edjsHTML.node.js",
+  "types": ".build/main.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rollup --config && rm -rf .build/node_modules && rm -rf .build/src",
