@@ -3,7 +3,7 @@
   "version": "4.0.5",
   "description": "",
   "main": ".build/edjsHTML.node.js",
-  "types": ".build/src/main.d.ts",
+  "types": ".build/main.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rollup --config && rm -rf .build/node_modules",
