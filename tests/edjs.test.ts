@@ -43,11 +43,22 @@ describe("Testing Parser Transformer Functions", () => {
       },
     };
 
+    const alignedBlock = {
+      type: "header",
+      data: {
+        text: "Editor.js",
+        level: 2,
+        alignment: "center",
+      },
+    };
+
     const h1html = edjsParser.parseBlock(h1Block);
     const h5html = edjsParser.parseBlock(h5Block);
+    const alignedHtml = edjsParser.parseBlock(alignedBlock);
 
     expect(h1html).toBe(`<h1>Editor.js</h1>`);
     expect(h5html).toBe(`<h5>Editor.js</h5>`);
+    expect(alignedHtml).toBe(`<h2 style="text-align:center">Editor.js</h2>`);
   });
 
   test("Paragraph Works", () => {

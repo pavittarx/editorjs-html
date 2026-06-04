@@ -1,6 +1,6 @@
 {
-  "name": "editorjs-html",
-  "version": "4.0.5",
+  "name": "@blade47/editorjs-html",
+  "version": "4.0.9",
   "description": "",
   "main": ".build/edjsHTML.node.js",
   "types": ".build/src/main.d.ts",
